@@ -1,14 +1,16 @@
-//Testing out the async function with "foo" console.log
 (async function() {
-   console.log('foo');
- }());
-
-//Reading the async.js file and the previous coding assignment the time.
-//Using the console.log calling out the new Date and then using the function wait seconds.
+  console.log('foo');
+}());
 
 console.log('Console log before calling wait:', new Date());
 
-//Applying the same results from the assignment now lets try with the async function call.
+function wait(seconds) { 
+  return new Promise(function(resolve) {
+    setTimeout(function(){
+      resolve(new Date());
+    }, seconds * 1000);
+  });
+}
 
 (async function() {
   var foo = await wait(3);
